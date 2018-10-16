@@ -8,4 +8,5 @@ gem 'capybara'
 gem 'rspec'
 gem 'shotgun'
 gem 'sinatra'
+gem 'pry'
 # gem "rails"
