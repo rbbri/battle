@@ -6,12 +6,12 @@ feature 'Entering player names' do
     visit('/')
     fill_in('p1', with: 'John')
     click_button('Submit')
-    expect(page).to have_content 'JOHN'
+    expect(page).to have_content 'John'
   end
   scenario 'P2 enters name' do
     visit('/')
     fill_in('p2', with: 'Not John')
     click_button('Submit')
-    expect(page).to have_content 'NOT JOHN'
+    expect(page).to have_content 'Not John'
   end
 end
