@@ -42,4 +42,10 @@ attr_reader :turn
     end
   end
 
+  def loser
+    if game_over? == true
+      player_2.dead ? player_2 : player_1
+    end
+  end
+
 end
