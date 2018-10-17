@@ -8,10 +8,16 @@ class Player
   end
 
   def damage
-    @hit_points -= 10
+    @hit_points -= mod.to_f * 10
   end
 
   def dead
     @hit_points <= 0
+  end
+
+  private
+
+  def mod
+    [0, 0.25, 0.25, 0.5, 0.5, 0.5, 0.5, 0.75, 0.75, 1].sample
   end
 end
