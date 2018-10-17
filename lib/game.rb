@@ -40,6 +40,11 @@ class Game
     switch_turns
   end
 
+  def heal
+    current_turn.healing
+    switch_turns
+  end
+
   def game_over?
     player_1.dead || player_2.dead
   end

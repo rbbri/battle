@@ -11,6 +11,10 @@ class Player
     @hit_points -= mod.to_f * 10
   end
 
+  def healing
+    @hit_points += mod.to_f * 10
+  end
+
   def dead
     @hit_points <= 0
   end

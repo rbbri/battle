@@ -28,6 +28,11 @@ class Battle < Sinatra::Base
     erb(:attack)
   end
 
+  get '/heal' do
+    @game.heal
+    erb(:heal)
+  end
+
   get '/game_over' do
     erb(:game_over)
   end
