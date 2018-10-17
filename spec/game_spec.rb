@@ -10,10 +10,10 @@ describe Game do
       expect(game.player_1.name).to eq 'John'
     end
   end
-    describe '#attack' do
-      it 'damages the player' do
-        expect(player_2).to receive(:damage)
-        game.attack(player_2)
-      end
+  describe '#attack' do
+    it 'damages the player' do
+      expect(player_2).to receive(:damage)
+      game.attack
     end
   end
+end

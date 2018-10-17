@@ -1,13 +1,11 @@
 <body style="background-color:#C0C0C0">
 
-<h1 style="text-align:center; font-family:courier;">--<%="#{@game.winner.name} wins!"%>!---</h1>
+<h1 style="text-align:center; font-family:courier;">---<%="#{@game.winner.name} wins!"%>!---</h1>
 <h2 style="text-align:center; font-family:courier;"><%="#{@game.loser.name} did not survive"%> </h2>
 <h3 style="text-align:left; font-family:courier;"><%="#{@game.player_1.name}"%>: <%="#{@game.player_1.hit_points}HP"%></h3>
 <h3 style="text-align:right; font-family:courier;"><%="#{@game.player_2.name}"%>: <%="#{@game.player_2.hit_points}HP"%></h3>
 <center>
-  <form action="/attack">
-    <input type="submit" value="Attack">
-  </form>
+
 <img
 style = "padding: 2em 0 2em 0; width:400px;height:400px;" align=middle
 src='https://www.viral-kittens.com/m/en/476/lord-of-the-ring-battle-cats-gandalf-sauron-r-default.webp'

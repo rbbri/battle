@@ -1,6 +1,5 @@
 require 'pry'
 
-
 feature 'Switch turns' do
   scenario 'after p1 turn' do
     sign_in_and_play
@@ -8,5 +7,4 @@ feature 'Switch turns' do
     click_button 'Attack'
     expect(page).to have_content 'John: 50HP'
   end
-
 end

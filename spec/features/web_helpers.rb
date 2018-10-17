@@ -7,6 +7,6 @@ end
 
 def super_attack
   11.times do
-    click_button "Attack"
+    click_button 'Attack'
   end
 end

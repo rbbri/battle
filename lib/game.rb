@@ -1,17 +1,25 @@
 class Game
-attr_reader :turn
+  attr_reader :turn
 
   def initialize(player_1, player_2)
     @players = [player_1, player_2]
     @turn = player_1
   end
 
+  def self.create(player_1, player_2)
+    @game = Game.new(player_1, player_2)
+  end
+
+  def self.instance
+    @game
+  end
+
   def player_1
-    return @players.first
+    @players.first
   end
 
   def player_2
-    return @players.last
+    @players.last
   end
 
   def current_turn
@@ -19,15 +27,15 @@ attr_reader :turn
   end
 
   def non_active
-  return @players.first if @turn == player_2
-  return @players.last if @turn == player_1
+    return player_1 if @turn == player_2
+    return player_2 if @turn == player_1
   end
 
   def switch_turns
     @turn = non_active
   end
 
-  def attack(player)
+  def attack
     non_active.damage
     switch_turns
   end
@@ -37,15 +45,10 @@ attr_reader :turn
   end
 
   def winner
-    if game_over? == true
-      player_1.dead ? player_2 : player_1
-    end
+    player_1.dead && game_over? ? player_2 : player_1
   end
 
   def loser
-    if game_over? == true
-      player_2.dead ? player_2 : player_1
-    end
+    player_2.dead && game_over? ? player_2 : player_1
   end
-
 end
