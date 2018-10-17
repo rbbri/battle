@@ -1,5 +1,5 @@
 class Game
-
+attr_reader :turn
 
   def initialize(player_1, player_2)
     @players = [player_1, player_2]
@@ -7,11 +7,11 @@ class Game
   end
 
   def player_1
-    @players.first
+    return @players.first
   end
 
   def player_2
-    @players.last
+    return @players.last
   end
 
   def current_turn
@@ -30,6 +30,16 @@ class Game
   def attack(player)
     non_active.damage
     switch_turns
+  end
+
+  def game_over?
+    player_1.dead || player_2.dead
+  end
+
+  def winner
+    if game_over? == true
+      player_1.dead ? player_2 : player_1
+    end
   end
 
 end

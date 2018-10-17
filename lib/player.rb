@@ -10,4 +10,8 @@ class Player
   def damage
     @hit_points -= 10
   end
+
+  def dead
+    @hit_points <= 0
+  end
 end

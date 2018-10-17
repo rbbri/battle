@@ -22,6 +22,12 @@ class Battle < Sinatra::Base
   get '/attack' do
     @game = $game
     @game.attack(@game.non_active)
+    redirect '/game_over' if @game.game_over?
     erb(:attack)
+  end
+
+  get '/game_over' do
+    @game = $game
+    erb(:game_over)
   end
 end
