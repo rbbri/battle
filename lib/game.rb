@@ -1,13 +1,14 @@
 class Game
   attr_reader :turn
 
-  def initialize(player_1, player_2)
+  def initialize(player_1, player_2, message)
     @players = [player_1, player_2]
-    @turn = player_1
+    @turn = [player_1, player_2].sample
+    @message = message
   end
 
-  def self.create(player_1, player_2)
-    @game = Game.new(player_1, player_2)
+  def self.create(player_1, player_2, message)
+    @game = Game.new(player_1, player_2, message)
   end
 
   def self.instance
@@ -50,10 +51,19 @@ class Game
   end
 
   def winner
-    player_1.dead && game_over? ? player_2 : player_1
+    player_1.dead ? player_2.name : in_progress
+    player_2.dead ? player_1.name : in_progress
   end
 
   def loser
-    player_2.dead && game_over? ? player_2 : player_1
+    player_2.dead ? player_2.name : in_progress
+    player_1.dead ? player_1.name : in_progress
   end
+
+private
+
+  def in_progress
+    raise "Game is not over"
+  end
+
 end
