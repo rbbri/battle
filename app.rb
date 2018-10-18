@@ -11,7 +11,7 @@ class Battle < Sinatra::Base
     player_1 = Player.new(params[:p1])
     player_2 = Player.new(params[:p2])
     @game = Game.create(player_1, player_2)
-    redirect to('/play')
+    play
   end
 
   before do
@@ -19,21 +19,31 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
+    game_over if @game.game_over?
     erb(:play)
   end
 
-  get '/attack' do
+  post '/attack' do
     @game.attack
-    redirect '/game_over' if @game.game_over?
-    erb(:attack)
+    play
   end
 
-  get '/heal' do
+  post '/heal' do
     @game.heal
-    erb(:heal)
+    play
   end
 
   get '/game_over' do
     erb(:game_over)
+  end
+
+private
+
+  def game_over
+    redirect '/game_over'
+  end
+
+  def play
+    redirect '/play'
   end
 end

@@ -2,8 +2,8 @@ require 'game'
 
 describe Game do
   subject(:game) { described_class.new(player_1, player_2) }
-  let(:player_1) { double :player, name: 'John', healing: nil }
-  let(:player_2) { double :player, name: 'Not John', healing: nil }
+  let(:player_1) { double :player, name: 'John', healing: nil, paralyse: nil }
+  let(:player_2) { double :player, name: 'Not John', healing: nil, paralyse: nil }
 
   context 'when game is started' do
     it 'has two players' do
@@ -22,4 +22,12 @@ describe Game do
       game.heal
     end
   end
+  # describe '#paralyse' do
+  #   it 'paralyses the player' do
+  #     allow(player_2).to receive(:paralyse)
+  #     game.paralyse
+  #
+  #
+  #   end
+  # end
 end
