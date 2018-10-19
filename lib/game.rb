@@ -3,7 +3,8 @@ class Game
 
   def initialize(player_1, player_2, message)
     @players = [player_1, player_2]
-    @turn = [player_1, player_2].sample
+    @turn = player_1
+    # @turn = [player_1, player_2].sample
     @message = message
   end
 

@@ -10,3 +10,6 @@ gem 'rspec'
 gem 'shotgun'
 gem 'sinatra'
 # gem "rails"
+group :development do
+   gem 'guard-rspec', require: false
+end
